@@ -1,0 +1,54 @@
+name: Validate OpenAPI Spec
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install OpenAPI tools
+      run: |
+        npm install -g @apidevtools/swagger-parser
+        npm install -g @openapitools/openapi-generator-cli
+        
+    - name: Validate OpenAPI spec
+      run: |
+        echo "🔍 Validating OpenAPI specification..."
+        swagger-parser validate openapi.yaml
+        echo "✅ OpenAPI spec is valid!"
+        
+    - name: Lint OpenAPI spec
+      run: |
+        echo "🧹 Linting OpenAPI specification..."
+        openapi-generator-cli validate -i openapi.yaml
+        echo "✅ OpenAPI spec passes linting!"
+        
+    - name: Generate documentation preview
+      run: |
+        echo "📖 Testing documentation generation..."
+        # Test if we can generate HTML docs
+        openapi-generator-cli generate \
+          -i openapi.yaml \
+          -g html2 \
+          -o ./docs-preview
+        echo "✅ Documentation generation successful!"
+        
+    - name: Upload docs preview
+      uses: actions/upload-artifact@v4
+      with:
+        name: api-docs-preview
+        path: ./docs-preview/
+        retention-days: 7

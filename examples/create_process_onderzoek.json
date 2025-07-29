@@ -1,0 +1,20 @@
+{
+  "type": "onderzoek",
+  "naam": "Privacy audit Q1 2024",
+  "status": "nieuw",
+  "startdatum": "2024-02-01",
+  "einddatum": "2024-02-28",
+  "prioriteit": "hoog",
+  "opmerkingen": "Jaarlijkse privacy audit zoals vereist door AVG",
+  "typeSpecifiekeData": {
+    "onderzoektype": "compliance",
+    "onderzoeker": "Dr. Peter de Wit",
+    "doelstelling": "Naleven van AVG regelgeving controleren en verbeterpunten identificeren",
+    "methodologie": "Documentanalyse, interviews met medewerkers, en technische security scan",
+    "bevindingen": [
+      "Alle systemen voldoen aan encryptie eisen",
+      "Aanbeveling: betere logging van data toegang",
+      "Training privacy awareness voor nieuwe medewerkers"
+    ]
+  }
+}

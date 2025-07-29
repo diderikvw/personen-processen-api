@@ -1,0 +1,14 @@
+{
+  "type": "klacht",
+  "naam": "Klacht over service kwaliteit",
+  "status": "in_behandeling",
+  "startdatum": "2024-01-20",
+  "prioriteit": "hoog",
+  "opmerkingen": "Klant zeer ontevreden, directe actie vereist",
+  "typeSpecifiekeData": {
+    "klachttype": "service",
+    "beschrijving": "Onvriendelijke behandeling bij het loket door medewerker. Klant moest lang wachten en kreeg geen adequate hulp bij het invullen van formulieren.",
+    "oplossing": "Excuses aangeboden aan klant, medewerker krijgt extra training in klantvriendelijkheid",
+    "urgentie": "hoog"
+  }
+}

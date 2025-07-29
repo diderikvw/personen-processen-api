@@ -1,0 +1,13 @@
+{
+  "naam": "Jan de Vries",
+  "email": "jan.devries@example.com",
+  "telefoon": "+31612345678",
+  "geboortedatum": "1990-05-15",
+  "adres": {
+    "straat": "Damrak",
+    "huisnummer": "123A",
+    "postcode": "1012 JS",
+    "plaats": "Amsterdam",
+    "land": "Nederland"
+  }
+}

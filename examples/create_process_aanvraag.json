@@ -1,0 +1,18 @@
+{
+  "type": "aanvraag",
+  "naam": "Aanvraag rijbewijs B",
+  "status": "nieuw",
+  "startdatum": "2024-01-15",
+  "prioriteit": "normaal",
+  "opmerkingen": "Eerste aanvraag, medische keuring vereist",
+  "typeSpecifiekeData": {
+    "aanvraagtype": "rijbewijs",
+    "documentenVereist": [
+      "identiteitsbewijs",
+      "medische verklaring",
+      "pasfoto"
+    ],
+    "behandelaar": "Marie Jansen",
+    "kosten": 37.50
+  }
+}
