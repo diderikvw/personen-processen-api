@@ -5,12 +5,12 @@ Een OpenAPI 3.0 specificatie voor het beheren van personen en hun bijbehorende p
 ## 📖 Documentatie
 
 ### Interactieve Documentatie
-- **[Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/JOUW-USERNAME/personen-processen-api/main/openapi.yaml)** - Bekijk en test de API interactief
-- **[ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/JOUW-USERNAME/personen-processen-api/main/openapi.yaml)** - Alternatieve documentatie weergave
 
-> ⚠️ **Vervang `JOUW-USERNAME`** in bovenstaande links door je GitHub username
+- **[Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/diderikvw/personen-processen-api/main/openapi.yaml)** - Bekijk en test de API interactief
+- **[ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/diderikvw/personen-processen-api/main/openapi.yaml)** - Alternatieve documentatie weergave
 
 ### Lokaal bekijken
+
 ```bash
 # Clone de repository
 git clone https://github.com/JOUW-USERNAME/personen-processen-api.git
@@ -23,11 +23,13 @@ npx @apidevtools/swagger-parser validate openapi.yaml
 ## 🏗️ API Overzicht
 
 ### Kern Concepten
+
 - **Personen**: Collectie van personen met basis gegevens (naam, email, adres, etc.)
 - **Processen**: Elke persoon kan meerdere processen hebben
 - **Proces Types**: Verschillende types met eigen specifieke attributen
 
 ### Ondersteunde Proces Types
+
 1. **Aanvraag** - Voor aanvragen zoals rijbewijzen, vergunningen
 2. **Klacht** - Voor klachtenafhandeling
 3. **Onderzoek** - Voor compliance onderzoeken en audits
@@ -35,12 +37,15 @@ npx @apidevtools/swagger-parser validate openapi.yaml
 ## 🚀 Quick Start
 
 ### Basis URL
+
 ```
 https://api.example.com/v1
 ```
 
 ### Authenticatie
+
 Alle endpoints vereisen JWT Bearer authenticatie:
+
 ```bash
 Authorization: Bearer <your-jwt-token>
 ```
@@ -48,6 +53,7 @@ Authorization: Bearer <your-jwt-token>
 ### Voorbeeld Requests
 
 #### Nieuwe persoon aanmaken
+
 ```bash
 curl -X POST https://api.example.com/v1/personen \
   -H "Authorization: Bearer <token>" \
@@ -56,6 +62,7 @@ curl -X POST https://api.example.com/v1/personen \
 ```
 
 #### Proces toevoegen aan persoon
+
 ```bash
 curl -X POST https://api.example.com/v1/personen/{persoonId}/processen \
   -H "Authorization: Bearer <token>" \
@@ -85,6 +92,7 @@ curl -X POST https://api.example.com/v1/personen/{persoonId}/processen \
 ## 🔍 API Endpoints
 
 ### Personen
+
 - `GET /personen` - Lijst alle personen
 - `POST /personen` - Maak nieuwe persoon
 - `GET /personen/{id}` - Haal specifieke persoon op
@@ -92,6 +100,7 @@ curl -X POST https://api.example.com/v1/personen/{persoonId}/processen \
 - `DELETE /personen/{id}` - Verwijder persoon
 
 ### Processen
+
 - `GET /personen/{id}/processen` - Lijst processen van persoon
 - `POST /personen/{id}/processen` - Voeg proces toe
 - `GET /personen/{id}/processen/{procesId}` - Haal specifiek proces op
@@ -101,6 +110,7 @@ curl -X POST https://api.example.com/v1/personen/{persoonId}/processen \
 ## 🛠️ Ontwikkeling
 
 ### Spec Valideren
+
 ```bash
 # Met npm
 npx @apidevtools/swagger-parser validate openapi.yaml
@@ -112,6 +122,7 @@ docker run --rm -v $(pwd):/workspace \
 ```
 
 ### Code Genereren
+
 ```bash
 # Client code genereren (JavaScript)
 npx @openapitools/openapi-generator-cli generate \
@@ -141,6 +152,7 @@ Deze repository bevat GitHub Actions die automatisch de OpenAPI spec valideren b
 5. Maak een Pull Request
 
 ### Guidelines
+
 - Volg de bestaande naamconventies
 - Voeg voorbeelden toe voor nieuwe endpoints
 - Update de documentatie
@@ -157,6 +169,7 @@ Dit project valt onder de MIT licentie. Zie het `LICENSE` bestand voor details.
 ## 📞 Contact
 
 Voor vragen of suggesties kun je:
+
 - Een issue aanmaken in deze repository
 - Contact opnemen via [email@example.com](mailto:email@example.com)
 
