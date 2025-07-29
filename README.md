@@ -4,9 +4,12 @@ Een OpenAPI 3.0 specificatie voor het beheren van personen en hun bijbehorende p
 
 ## 📖 Documentatie
 
-### Interactieve Documentatie
+### Bekijk de API interactief als Swagger Docs
 
-- **[Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/diderikvw/personen-processen-api/main/openapi.yaml)** - Bekijk de API interactief
+1. Open **[Swagger Editor](https://editor.swagger.io/)**
+2. Open het File-menu bovenin en kies Import URL
+3. Kopieer en plak de URL van het Open API-specificatiebestand uit deze Repo: https://raw.githubusercontent.com/diderikvw/personen-processen-api/refs/heads/main/openapi.yml
+4. Klik op OK
 
 ## 🏗️ API Overzicht
 
