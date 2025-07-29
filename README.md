@@ -6,8 +6,7 @@ Een OpenAPI 3.0 specificatie voor het beheren van personen en hun bijbehorende p
 
 ### Interactieve Documentatie
 
-- **[Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/diderikvw/personen-processen-api/main/openapi.yaml)** - Bekijk en test de API interactief
-- **[ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/diderikvw/personen-processen-api/main/openapi.yaml)** - Alternatieve documentatie weergave
+- **[Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/diderikvw/personen-processen-api/main/openapi.yaml)** - Bekijk de API interactief
 
 ### Lokaal bekijken
 
