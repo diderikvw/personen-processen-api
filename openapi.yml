@@ -40,7 +40,7 @@ paths:
             minimum: 0
             default: 0
       responses:
-        '200':
+        "200":
           description: Lijst van personen
           content:
             application/json:
@@ -50,106 +50,13 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Persoon'
+                      $ref: "#/components/schemas/Persoon"
                   meta:
-                    $ref: '#/components/schemas/PaginationMeta'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    
-    post:
-      summary: Maak een nieuwe persoon aan
-      description: Voegt een nieuwe persoon toe aan het systeem
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PersoonInput'
-      responses:
-        '201':
-          description: Persoon succesvol aangemaakt
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Persoon'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-
-  /personen/{persoonId}:
-    get:
-      summary: Haal een specifieke persoon op
-      description: Retourneert de details van een specifieke persoon
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Persoon details
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Persoon'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    
-    put:
-      summary: Update een persoon
-      description: Werkt alle gegevens van een persoon bij
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PersoonInput'
-      responses:
-        '200':
-          description: Persoon succesvol bijgewerkt
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Persoon'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    
-    delete:
-      summary: Verwijder een persoon
-      description: Verwijdert een persoon en alle bijbehorende processen
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '204':
-          description: Persoon succesvol verwijderd
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                    $ref: "#/components/schemas/PaginationMeta"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
 
   /personen/{persoonId}/processen:
     get:
@@ -168,144 +75,20 @@ paths:
           description: Filter op proces type
           required: false
           schema:
-            $ref: '#/components/schemas/ProcesType'
+            $ref: "#/components/schemas/ProcesType"
       responses:
-        '200':
+        "200":
           description: Lijst van processen
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Proces'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    
-    post:
-      summary: Voeg een proces toe aan een persoon
-      description: Maakt een nieuw proces aan voor een specifieke persoon
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProcesInput'
-      responses:
-        '201':
-          description: Proces succesvol aangemaakt
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Proces'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-
-  /personen/{persoonId}/processen/{procesId}:
-    get:
-      summary: Haal een specifiek proces op
-      description: Retourneert de details van een specifiek proces
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-        - name: procesId
-          in: path
-          required: true
-          description: Unieke identifier van het proces
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Proces details
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Proces'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    
-    put:
-      summary: Update een proces
-      description: Werkt alle gegevens van een proces bij
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-        - name: procesId
-          in: path
-          required: true
-          description: Unieke identifier van het proces
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ProcesInput'
-      responses:
-        '200':
-          description: Proces succesvol bijgewerkt
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Proces'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-    
-    delete:
-      summary: Verwijder een proces
-      description: Verwijdert een specifiek proces van een persoon
-      parameters:
-        - name: persoonId
-          in: path
-          required: true
-          description: Unieke identifier van de persoon
-          schema:
-            type: string
-            format: uuid
-        - name: procesId
-          in: path
-          required: true
-          description: Unieke identifier van het proces
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '204':
-          description: Proces succesvol verwijderd
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                  $ref: "#/components/schemas/Proces"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
 
 components:
   schemas:
@@ -346,7 +129,7 @@ components:
           description: Geboortedatum van de persoon
           example: "1990-05-15"
         adres:
-          $ref: '#/components/schemas/Adres'
+          $ref: "#/components/schemas/Adres"
         createdAt:
           type: string
           format: date-time
@@ -358,37 +141,6 @@ components:
           description: Tijdstip waarop de persoon laatst is bijgewerkt
           example: "2024-01-15T10:30:00Z"
 
-    PersoonInput:
-      type: object
-      required:
-        - naam
-        - email
-        - geboortedatum
-      properties:
-        naam:
-          type: string
-          description: Volledige naam van de persoon
-          example: "Jan de Vries"
-          minLength: 1
-          maxLength: 255
-        email:
-          type: string
-          format: email
-          description: Email adres van de persoon
-          example: "jan.devries@example.com"
-        telefoon:
-          type: string
-          description: Telefoonnummer van de persoon
-          example: "+31612345678"
-          pattern: "^\\+[1-9]\\d{1,14}$"
-        geboortedatum:
-          type: string
-          format: date
-          description: Geboortedatum van de persoon
-          example: "1990-05-15"
-        adres:
-          $ref: '#/components/schemas/AdresInput'
-
     Adres:
       type: object
       required:
@@ -397,37 +149,6 @@ components:
         - postcode
         - plaats
         - land
-      properties:
-        straat:
-          type: string
-          description: Straatnaam
-          example: "Damrak"
-        huisnummer:
-          type: string
-          description: Huisnummer (inclusief toevoeging)
-          example: "123A"
-        postcode:
-          type: string
-          description: Postcode
-          example: "1012 JS"
-          pattern: "^[1-9][0-9]{3} ?[A-Z]{2}$"
-        plaats:
-          type: string
-          description: Plaatsnaam
-          example: "Amsterdam"
-        land:
-          type: string
-          description: Land
-          example: "Nederland"
-          default: "Nederland"
-
-    AdresInput:
-      type: object
-      required:
-        - straat
-        - huisnummer
-        - postcode
-        - plaats
       properties:
         straat:
           type: string
@@ -474,7 +195,7 @@ components:
           description: Identifier van de bijbehorende persoon
           example: "550e8400-e29b-41d4-a716-446655440000"
         type:
-          $ref: '#/components/schemas/ProcesType'
+          $ref: "#/components/schemas/ProcesType"
         naam:
           type: string
           description: Naam of beschrijving van het proces
@@ -482,7 +203,7 @@ components:
           minLength: 1
           maxLength: 255
         status:
-          $ref: '#/components/schemas/ProcesStatus'
+          $ref: "#/components/schemas/ProcesStatus"
         startdatum:
           type: string
           format: date
@@ -514,51 +235,9 @@ components:
           example: "2024-01-15T10:30:00Z"
         typeSpecifiekeData:
           oneOf:
-            - $ref: '#/components/schemas/AanvraagDetails'
-            - $ref: '#/components/schemas/KlachtDetails'
-            - $ref: '#/components/schemas/OnderzoekDetails'
-
-    ProcesInput:
-      type: object
-      required:
-        - type
-        - naam
-        - status
-      properties:
-        type:
-          $ref: '#/components/schemas/ProcesType'
-        naam:
-          type: string
-          description: Naam of beschrijving van het proces
-          example: "Aanvraag rijbewijs"
-          minLength: 1
-          maxLength: 255
-        status:
-          $ref: '#/components/schemas/ProcesStatus'
-        startdatum:
-          type: string
-          format: date
-          description: Startdatum van het proces
-          example: "2024-01-15"
-        einddatum:
-          type: string
-          format: date
-          description: Einddatum van het proces (optioneel)
-          example: "2024-02-15"
-        prioriteit:
-          type: string
-          enum: [laag, normaal, hoog, kritiek]
-          description: Prioriteit van het proces
-          default: "normaal"
-        opmerkingen:
-          type: string
-          description: Aanvullende opmerkingen bij het proces
-          example: "Extra documentatie vereist"
-        typeSpecifiekeData:
-          oneOf:
-            - $ref: '#/components/schemas/AanvraagDetailsInput'
-            - $ref: '#/components/schemas/KlachtDetailsInput'
-            - $ref: '#/components/schemas/OnderzoekDetailsInput'
+            - $ref: "#/components/schemas/AanvraagDetails"
+            - $ref: "#/components/schemas/KlachtDetails"
+            - $ref: "#/components/schemas/OnderzoekDetails"
 
     ProcesType:
       type: string
@@ -598,58 +277,7 @@ components:
           description: Kosten van de aanvraag
           example: 37.50
 
-    AanvraagDetailsInput:
-      type: object
-      required:
-        - aanvraagtype
-        - documentenVereist
-      properties:
-        aanvraagtype:
-          type: string
-          description: Specifiek type aanvraag
-          example: "rijbewijs"
-        documentenVereist:
-          type: array
-          items:
-            type: string
-          description: Lijst van vereiste documenten
-          example: ["identiteitsbewijs", "medische verklaring"]
-        behandelaar:
-          type: string
-          description: Naam van de behandelaar
-          example: "Marie Jansen"
-        kosten:
-          type: number
-          format: decimal
-          description: Kosten van de aanvraag
-          example: 37.50
-
     KlachtDetails:
-      type: object
-      required:
-        - klachttype
-        - beschrijving
-      properties:
-        klachttype:
-          type: string
-          description: Categorie van de klacht
-          example: "service"
-        beschrijving:
-          type: string
-          description: Uitgebreide beschrijving van de klacht
-          example: "Onvriendelijke behandeling bij het loket"
-          minLength: 10
-        oplossing:
-          type: string
-          description: Voorgestelde of uitgevoerde oplossing
-          example: "Excuses aangeboden en training gepland"
-        urgentie:
-          type: string
-          enum: [laag, gemiddeld, hoog]
-          description: Urgentie van de klacht
-          default: "gemiddeld"
-
-    KlachtDetailsInput:
       type: object
       required:
         - klachttype
@@ -701,36 +329,8 @@ components:
           items:
             type: string
           description: Belangrijkste bevindingen
-          example: ["Geen overtredingen gevonden", "Aanbeveling voor extra training"]
-
-    OnderzoekDetailsInput:
-      type: object
-      required:
-        - onderzoektype
-        - onderzoeker
-      properties:
-        onderzoektype:
-          type: string
-          description: Type onderzoek
-          example: "compliance"
-        onderzoeker:
-          type: string
-          description: Naam van de onderzoeker
-          example: "Dr. Peter de Wit"
-        doelstelling:
-          type: string
-          description: Doelstelling van het onderzoek
-          example: "Naleven van privacy regelgeving controleren"
-        methodologie:
-          type: string
-          description: Gebruikte onderzoeksmethodologie
-          example: "Documentanalyse en interviews"
-        bevindingen:
-          type: array
-          items:
-            type: string
-          description: Belangrijkste bevindingen
-          example: ["Geen overtredingen gevonden", "Aanbeveling voor extra training"]
+          example:
+            ["Geen overtredingen gevonden", "Aanbeveling voor extra training"]
 
     PaginationMeta:
       type: object
@@ -775,27 +375,27 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: "VALIDATION_ERROR"
             message: "De opgegeven gegevens zijn niet geldig"
-    
+
     NotFound:
       description: Resource niet gevonden
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: "NOT_FOUND"
             message: "De opgevraagde resource is niet gevonden"
-    
+
     InternalServerError:
       description: Interne serverfout
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: "INTERNAL_ERROR"
             message: "Er is een onverwachte fout opgetreden"
