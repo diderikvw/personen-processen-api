@@ -68,8 +68,9 @@ paths:
           required: true
           description: Unieke identifier van de persoon
           schema:
-            type: string
-            format: uuid
+            type: integer
+            format: int64
+            minimum: 1
         - name: type
           in: query
           description: Filter op proces type
@@ -103,10 +104,10 @@ components:
         - updatedAt
       properties:
         id:
-          type: string
-          format: uuid
+          type: integer
+          format: int64
           description: Unieke identifier van de persoon
-          example: "550e8400-e29b-41d4-a716-446655440000"
+          example: 12345
         naam:
           type: string
           description: Volledige naam van de persoon
@@ -185,15 +186,15 @@ components:
         - updatedAt
       properties:
         id:
-          type: string
-          format: uuid
+          type: integer
+          format: int64
           description: Unieke identifier van het proces
-          example: "660e8400-e29b-41d4-a716-446655440001"
+          example: 67890
         persoonId:
-          type: string
-          format: uuid
+          type: integer
+          format: int64
           description: Identifier van de bijbehorende persoon
-          example: "550e8400-e29b-41d4-a716-446655440000"
+          example: 12345
         type:
           $ref: "#/components/schemas/ProcesType"
         naam:
